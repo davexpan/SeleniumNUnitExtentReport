@@ -26,7 +26,7 @@ namespace SeleniumNUnitExtentNopCommerce.Tests
                 //FirefoxOptions options = new FirefoxOptions();
                 //var profile = new FirefoxProfile();
                 //var binary = new FirefoxBinary(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe");
-                //driver = new FirefoxDriver(binary, profile);
+                //driver = new FirefoxDriver(binary, profile); test gitea
 
 
 
