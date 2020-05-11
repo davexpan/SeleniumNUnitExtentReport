@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.IO;
+using System.Reflection;
 
 namespace SeleniumNUnitExtentNopCommerce.Setups
 {
@@ -48,8 +49,10 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
         [SetUp]
         public void BeforeTest()
         {
-            ChromeDriverService service = ChromeDriverService.CreateDefaultService("webdriver.chrome.driver", @"C:\\SeleniumDrivers\\chromedriver.exe");
-            driver = new ChromeDriver(service);
+            driver = new ChromeDriver();
+
+            //ChromeDriverService service = ChromeDriverService.CreateDefaultService("webdriver.chrome.driver", @"C:\\SeleniumDrivers\\chromedriver.exe");
+            //driver = new ChromeDriver(service);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(40);
             driver.Manage().Window.Maximize();
             _test = _extent.CreateTest(TestContext.CurrentContext.Test.Name);

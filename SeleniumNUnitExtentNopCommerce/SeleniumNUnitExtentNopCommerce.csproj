@@ -84,7 +84,6 @@
     <Compile Include="TestClass.cs" />
     <Compile Include="Tests\ExtentTestReports.cs" />
     <Compile Include="Tests\LoginTest.cs" />
-    <Compile Include="Tests\TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="license" />

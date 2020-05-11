@@ -46,10 +46,10 @@ namespace SeleniumNUnitExtentNopCommerce.Tests
 
 
 
-            var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            var pathDrivers = directory + "\\..\\..\\Drivers";
+            //var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            //var pathDrivers = directory + "\\..\\..\\Drivers";
 
-            driver = new ChromeDriver("pathDrivers");
+            //driver = new ChromeDriver("pathDrivers");
 
 
 
