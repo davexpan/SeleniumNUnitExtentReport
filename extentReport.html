@@ -43,7 +43,7 @@
         <ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 
             <a>
-                <span class='suite-start-time label blue darken-3'>5/11/2020 12:30:03 PM Eastern Standard Time</span>
+                <span class='suite-start-time label blue darken-3'>5/10/2020 10:18:32 AM Eastern Standard Time</span>
             </a>
             <a>
                 <span class="label blue darken-3">3.1.0</span>
@@ -123,10 +123,10 @@
                     <canvas id='parent-analysis' width='100' height='80'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span><span class='strong'>2</span> test(s) passed</span>
+                    <span><span class='strong'>0</span> test(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong'>0</span> test(s) failed, <span class='strong'>0</span> others
+                    <span class='strong'>1</span> test(s) failed, <span class='strong'>0</span> others
                 </div>
             </div>
         </div>
@@ -138,10 +138,10 @@
                         <canvas id='child-analysis' width='100' height='80'></canvas>
                     </div>
                     <div class='block text-small'>
-                        <span><span class='strong'>1</span> step(s) passed</span>
+                        <span><span class='strong'>3</span> step(s) passed</span>
                     </div>
                     <div class='block text-small'>
-                        <span class='strong'>0</span> step(s) failed, <span class='strong'>0</span> others
+                        <span class='strong'>1</span> step(s) failed, <span class='strong'>1</span> others
                     </div>
                 </div>
             </div>
@@ -156,32 +156,17 @@
             <ul id='test-collection' class='test-collection'>
 
 
-                    <li class='test displayed active  pass' status='pass' test-id='1'>
+                    <li class='test displayed active  fail' status='fail' test-id='1'>
                         <div class='test-heading'>
-                            <span class='test-name'>ChromeTest</span>
-                            <span class='test-time'>5/11/2020 12:30:16 PM</span>
-                            <span class='test-status right pass'>Pass</span>
+                            <span class='test-name'>ExtentTestCase</span>
+                            <span class='test-time'>5/10/2020 10:18:32 AM</span>
+                            <span class='test-status right fail'>Fail</span>
                         </div>
                         <div class='test-content hide'>
                                 <div class='test-time-info'>
-                                    <span class='label start-time'>5/11/2020 12:30:16 PM</span>
-                                    <span class='label end-time'>5/11/2020 12:30:16 PM</span>
-                                    <span class='label time-taken grey lighten-1 white-text'>00:00:00</span>
-                                </div>
-
-                        </div>
-                    </li>
-                    <li class='test displayed active  pass' status='pass' test-id='2'>
-                        <div class='test-heading'>
-                            <span class='test-name'>FirefoxTest</span>
-                            <span class='test-time'>5/11/2020 12:31:46 PM</span>
-                            <span class='test-status right pass'>Pass</span>
-                        </div>
-                        <div class='test-content hide'>
-                                <div class='test-time-info'>
-                                    <span class='label start-time'>5/11/2020 12:31:46 PM</span>
-                                    <span class='label end-time'>5/11/2020 12:32:30 PM</span>
-                                    <span class='label time-taken grey lighten-1 white-text'>00:00:43.5995337</span>
+                                    <span class='label start-time'>5/10/2020 10:18:32 AM</span>
+                                    <span class='label end-time'>5/10/2020 10:18:32 AM</span>
+                                    <span class='label time-taken grey lighten-1 white-text'>00:00:00.0099975</span>
                                 </div>
                                     <div class='test-steps'>
                                         <table class='bordered table-results'>
@@ -193,15 +178,38 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                    <tr class='log' status='info'>
+                                                        <td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+                                                        <td class='timestamp'>5/10/2020 10:18:32 AM</td>
+                                                        <td class='step-details'>Step 1: Test case starts</td>
+                                                    </tr>
                                                     <tr class='log' status='pass'>
                                                         <td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-                                                        <td class='timestamp'>5/11/2020 12:32:30 PM</td>
-                                                        <td class='step-details'>Test ended with Pass</td>
+                                                        <td class='timestamp'>5/10/2020 10:18:32 AM</td>
+                                                        <td class='step-details'>Step 2: Test case Pass</td>
+                                                    </tr>
+                                                    <tr class='log' status='fail'>
+                                                        <td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+                                                        <td class='timestamp'>5/10/2020 10:18:32 AM</td>
+                                                        <td class='step-details'>Step 3: Test case Failed</td>
+                                                    </tr>
+                                                    <tr class='log' status='pass'>
+                                                        <td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+                                                        <td class='timestamp'>5/10/2020 10:18:32 AM</td>
+                                                        <td class='step-details'>Screenshot<img data-featherlight='screenshot.png' class='step-img' src='screenshot.png' data-src='screenshot.png'></td>
+                                                    </tr>
+                                                    <tr class='log' status='pass'>
+                                                        <td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+                                                        <td class='timestamp'>5/10/2020 10:18:32 AM</td>
+                                                        <td class='step-details'>Screenshot</td>
                                                     </tr>
                                             </tbody>
                                         </table>
                                     </div>
 
+                                <ul class='screenshots'>
+                                        <li><img data-featherlight='screenshot.png' class='step-img' src='screenshot.png' data-src='screenshot.png'></li>
+                                </ul>
                         </div>
                     </li>
             </ul>
@@ -278,30 +286,30 @@
         <div class='row'>
             <div class='col s2'>
                 <div class='card-panel r'>
- <span>Tests</span>                     <div class='panel-lead'>2</div>
+ <span>Tests</span>                     <div class='panel-lead'>1</div>
                 </div>
             </div>
             <div class='col s2'>
                 <div class='card-panel r'>
- <span>Steps</span>                     <div class='panel-lead'>1</div>
+ <span>Steps</span>                     <div class='panel-lead'>5</div>
                 </div>
             </div>
             <div class='col s2'>
                 <div class='card-panel r'>
                     Start
-                    <div class='panel-lead'>5/11/2020 12:30:03 PM</div>
+                    <div class='panel-lead'>5/10/2020 10:18:32 AM</div>
                 </div>
             </div>
             <div class='col s2'>
                 <div class='card-panel r'>
                     End
-                    <div class='panel-lead'>5/11/2020 12:32:49 PM</div>
+                    <div class='panel-lead'>5/10/2020 10:18:34 AM</div>
                 </div>
             </div>
             <div class='col s2'>
                 <div class='card-panel r'>
                     Time Taken
-                    <div class='panel-lead'>00:02:45.9172946</div>
+                    <div class='panel-lead'>00:00:02.2715184</div>
                 </div>
             </div>
 
@@ -315,16 +323,12 @@
                                 <th>Value</th>
                             </tr>
                                 <tr>
-                                    <td>Host Name</td>
-                                    <td>LocalHost</td>
+                                    <td>OS</td>
+                                    <td>Windows 10</td>
                                 </tr>
                                 <tr>
-                                    <td>Environment</td>
-                                    <td>QA</td>
-                                </tr>
-                                <tr>
-                                    <td>UserName</td>
-                                    <td>TestUser</td>
+                                    <td>Browser</td>
+                                    <td>Chrome</td>
                                 </tr>
                         </table>
                     </div>
@@ -344,20 +348,20 @@
 
 		<script>
 			var statusGroup = {
-			    passParent: 2,
-			    failParent: 0,
+			    passParent: 0,
+			    failParent: 1,
 			    fatalParent: 0,
 			    errorParent: 0,
 			    warningParent: 0,
 			    skipParent: 0,
 				
-			    passChild: 1,
-			    failChild: 0,
+			    passChild: 3,
+			    failChild: 1,
 			    fatalChild: 0,
 			    errorChild: 0,
 			    warningChild: 0,
 			    skipChild: 0,
-			    infoChild: 0,
+			    infoChild: 1,
 				
 			    passGrandChild: 0,
 			    failGrandChild: 0,

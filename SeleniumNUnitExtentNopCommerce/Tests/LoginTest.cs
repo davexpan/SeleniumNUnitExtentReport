@@ -15,28 +15,24 @@ using OpenQA.Selenium.Chrome;
 namespace SeleniumNUnitExtentNopCommerce.Tests
 {
     [TestFixture]
-    public class LoginTest:ExtentReporting
+    public class LoginTest : ExtentReporting
     {
         [Test]
         public void FirefoxTest()
         {
-           
-            
 
-                //FirefoxOptions options = new FirefoxOptions();
-                //var profile = new FirefoxProfile();
-                //var binary = new FirefoxBinary(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe");
-                //driver = new FirefoxDriver(binary, profile); test gitea
+            //FirefoxOptions options = new FirefoxOptions();
+            //var profile = new FirefoxProfile();
+            //var binary = new FirefoxBinary(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe");
+            //driver = new FirefoxDriver(binary, profile); test gitea
 
+            var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var pathDrivers = directory + "\\..\\..\\Drivers";
 
-
-                var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                var pathDrivers = directory + "\\..\\..\\Drivers";
-
-                driver = new FirefoxDriver(pathDrivers);
-                driver.Navigate().GoToUrl("http://www.mozilla.org/");
-                driver.Manage().Window.Maximize();
-            }
+            driver = new FirefoxDriver(pathDrivers);
+            driver.Navigate().GoToUrl("http://www.mozilla.org/");
+            driver.Manage().Window.Maximize();
+        }
         [Test]
         public void ChromeTest()
         {
@@ -53,17 +49,17 @@ namespace SeleniumNUnitExtentNopCommerce.Tests
             var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             var pathDrivers = directory + "\\..\\..\\Drivers";
 
-            driver = new ChromeDriver(pathDrivers);
+            driver = new ChromeDriver("pathDrivers");
 
 
 
 
 
-            driver.Navigate().GoToUrl("http://www");
-           
+            driver.Navigate().GoToUrl("http://www.google.com");
+
             driver.Manage().Window.Maximize();
 
-            Assert.AreEqual(3, 4);
+            Assert.IsTrue(driver.Title.Contains("Google"));
         }
     }
 }
