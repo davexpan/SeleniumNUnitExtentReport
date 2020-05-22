@@ -1,17 +1,12 @@
 ﻿using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using NUnit.Framework;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SeleniumNUnitExtentNopCommerce.Setups;
 
 namespace SeleniumNUnitExtentNopCommerce.Tests
 {
     [TestFixture]
-    public class ExtentTestReports
+    public class ExtentTestReports : DriverExtentHook
     {
         [Test]
         public void ExtentTestCase()

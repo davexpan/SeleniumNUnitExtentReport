@@ -15,8 +15,20 @@ using OpenQA.Selenium.Chrome;
 namespace SeleniumNUnitExtentNopCommerce.Tests
 {
     [TestFixture]
-    public class LoginTest : ExtentReporting
+    public class LoginTest : DriverExtentHook
     {
+        [Test]
+        [Category("Smoke")]
+        public void LoginUserTest()
+        {
+            AllPages.LoginPage.GoToLoginPage(HomePage);
+            AllPages.LoginPage.UserLogin();
+            Assert.True(AllPages.LoginPage.IsAtHomePageDisplayed().Equals("My account - My Store"));
+            //  AxeResult results = Driver.Analyze();
+        }
+
+
+
         [Test]
         public void FirefoxTest()
         {
@@ -29,37 +41,22 @@ namespace SeleniumNUnitExtentNopCommerce.Tests
             var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             var pathDrivers = directory + "\\..\\..\\Drivers";
 
-            driver = new FirefoxDriver(pathDrivers);
-            driver.Navigate().GoToUrl("http://www.mozilla.org/");
-            driver.Manage().Window.Maximize();
+            Driver = new FirefoxDriver(pathDrivers);
+            Driver.Navigate().GoToUrl("http://www.mozilla.org/");
+            Driver.Manage().Window.Maximize();
+            Assert.IsTrue(Driver.Title == "Internet for people, not profit — Mozilla");
         }
         [Test]
         public void ChromeTest()
         {
 
 
+            Driver.Navigate().GoToUrl("http://www.google.com");
 
-            //FirefoxOptions options = new FirefoxOptions();
-            //var profile = new FirefoxProfile();
-            //var binary = new FirefoxBinary(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe");
-            //driver = new FirefoxDriver(binary, profile);
+            Driver.Manage().Window.Maximize();
 
-
-
-            //var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            //var pathDrivers = directory + "\\..\\..\\Drivers";
-
-            //driver = new ChromeDriver("pathDrivers");
-
-
-
-
-
-            driver.Navigate().GoToUrl("http://www.google.com");
-
-            driver.Manage().Window.Maximize();
-
-            Assert.IsTrue(driver.Title.Contains("Google"));
+            Assert.IsTrue(Driver.Title.Contains("Google"));
+            Assert.IsTrue(Driver.Title == "G0oogle");
         }
     }
 }
