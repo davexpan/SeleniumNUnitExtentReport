@@ -42,8 +42,10 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
             var actualPath = path.Substring(0, path.LastIndexOf("bin"));
             var projectPath = new Uri(actualPath).LocalPath;
             Directory.CreateDirectory(projectPath.ToString() + "Reports");
-            var reportPath = projectPath + "Reports\\ExtentReport.html";
-            var htmlReporter = new ExtentHtmlReporter(reportPath);
+            var reportPath = projectPath + "Reports\\";
+            string dir = TestContext.CurrentContext.TestDirectory + "\\";
+            var fileName = this.GetType().ToString() + ".html";
+            var htmlReporter = new ExtentHtmlReporter(reportPath + fileName);
 
             _extent = new ExtentReports();
             _extent.AttachReporter(htmlReporter);
@@ -87,6 +89,7 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
                     ? ""
                     : string.Format("{0}", TestContext.CurrentContext.Result.StackTrace);
             Status logstatus;
+            string testMethodName = TestContext.CurrentContext.Test.Name;
 
             switch (status)
             {

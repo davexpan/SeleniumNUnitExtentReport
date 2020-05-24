@@ -101,6 +101,7 @@
     <Content Include="Drivers\chromedriver.exe" />
     <Content Include="Drivers\geckodriver.exe" />
     <Content Include="extent-config.xml" />
+    <Content Include="TestGuide.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
