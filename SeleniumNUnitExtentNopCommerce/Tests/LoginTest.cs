@@ -17,19 +17,19 @@ namespace SeleniumNUnitExtentNopCommerce.Tests
     [TestFixture]
     public class LoginTest : DriverExtentHook
     {
-        [Test]
+        [Test, Order(1)]
         [Category("Smoke")]
         public void LoginUserTest()
         {
             AllPages.LoginPage.GoToLoginPage(HomePage);
             AllPages.LoginPage.UserLogin();
-            Assert.True(AllPages.LoginPage.IsAtHomePageDisplayed().Equals("My account - My Store"));
+            Assert.True(AllPages.LoginPage.IsAtHomePageDisplayed().Equals("Your store"));
             //  AxeResult results = Driver.Analyze();
         }
 
 
 
-        [Test]
+       // [Test, Order(3)]
         public void FirefoxTest()
         {
 
@@ -46,13 +46,17 @@ namespace SeleniumNUnitExtentNopCommerce.Tests
             Driver.Manage().Window.Maximize();
             Assert.IsTrue(Driver.Title == "Internet for people, not profit — Mozilla");
         }
-        [Test]
+        [Test, Order(2)]
         public void ChromeTest()
         {
 
 
             Driver.Navigate().GoToUrl("http://www.google.com");
+            IWebElement element = Driver.FindElement(By.Name("q"));
 
+            //Perform Ops
+            element.SendKeys("Google");
+            element.Submit();
             Driver.Manage().Window.Maximize();
 
             Assert.IsTrue(Driver.Title.Contains("Google"));

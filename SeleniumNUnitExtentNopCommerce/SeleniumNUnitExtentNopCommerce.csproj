@@ -87,6 +87,7 @@
     <Compile Include="Setups\DriverExtentHook.cs" />
     <Compile Include="Tests\ExtentTestReports.cs" />
     <Compile Include="Tests\LoginTest.cs" />
+    <Compile Include="Tests\ChromeTest2.cs" />
     <Compile Include="Utilities\CommonHelpers.cs" />
     <Compile Include="Utilities\GetUserCredentials.cs" />
     <Compile Include="Utilities\SeleniumHelper.cs" />
@@ -95,7 +96,8 @@
   <ItemGroup>
     <None Include="license" />
     <None Include="packages.config" />
-    <None Include="RunSettings\test.runsettings" />
+    <None Include="RunSettings\FireFoxTest.runsettings" />
+    <None Include="RunSettings\ChromeTest.runsettings" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Drivers\chromedriver.exe" />

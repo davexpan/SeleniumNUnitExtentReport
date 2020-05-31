@@ -28,12 +28,14 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
         [OneTimeSetUp]
         protected void Setup()
         {
-            Browser = new BrowserSelect();
-            //DbHelper = new DataBaseHelper();
-            Driver = Browser.Create(BrowserSelect.Type.Chrome);
-            Driver.Manage().Window.Maximize();
             EnvSettings = GetAppSettings();
             GetUser = GetUserCred();
+            Browser = new BrowserSelect();
+            var browser = EnvSettings.Browser;
+            //var browser = TestContext.Parameters.Get("Browser", "firefox");
+            Driver = Browser.Create(Browser.PassInBrowser());
+            Driver.Manage().Window.Maximize();
+
             HomePage = EnvSettings.HomePage;
             AllPages = new Page(Driver, GetUser);
             CommonHelpers = new CommonHelpers();
@@ -62,8 +64,7 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
             {
                 Email = EnvSettings.Email,
                 Password = EnvSettings.Password,
-                NewPassword = "",
-                DataBase = EnvSettings.ClientID,
+
             };
 
             return GetUser;
@@ -75,8 +76,8 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
             {
                 HomePage = TestContext.Parameters["Environment"].ToString(),
                 Email = TestContext.Parameters["Email"].ToString(),
-                Password = TestContext.Parameters["Password"].ToString()
-
+                Password = TestContext.Parameters["Password"].ToString(),
+                Browser = TestContext.Parameters["BrowserType"].ToString()
             };
             return AppSettings;
         }
@@ -90,13 +91,15 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
                     : string.Format("{0}", TestContext.CurrentContext.Result.StackTrace);
             Status logstatus;
             string testMethodName = TestContext.CurrentContext.Test.Name;
+            //var fileName = this.GetType().ToString();  //get class name?
 
             switch (status)
             {
                 case TestStatus.Failed:
                     logstatus = Status.Fail;
                     DateTime time = DateTime.Now;
-                    String fileName = "Screenshot_" + time.ToString("hh_mm_ss") + ".png";
+
+                    String fileName = testMethodName + time.ToString("_hh_mm_ss") + ".png";
                     String screenShotPath = Capture(Driver, fileName);
                     _test.Log(Status.Fail, "Fail");
                     _test.Log(Status.Fail, "Snapshot below: " + _test.AddScreenCaptureFromPath("Screenshots\\" + fileName));
@@ -112,9 +115,9 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
                     break;
             }
 
-            _test.Log(logstatus, "Test ended with " + logstatus + stacktrace);
+            _test.Log(logstatus, testMethodName + " " + logstatus + stacktrace);
             _extent.Flush();
-            Driver.Quit();
+           // Driver.Close();
         }
 
         // public IWebDriver GetDriver()
@@ -137,40 +140,13 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
             return reportPath;
         }
 
-        //[TearDown]
-        //public void TearDownTest()
-        //{
-        //    if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
-        //    {
-        //        string datestamp = DateTime.Now.ToString("yyyy-MM-dd");
-        //        string timestamp = DateTime.Now.ToString("_hh_mm_ss");
-
-        //        // Create directory if it doesn't exist
-        //        Directory.CreateDirectory("C:\\ScreenShots");
-
-        //        Directory.CreateDirectory($"C:\\ScreenShots\\{datestamp}");
-        //        // Take screenshot
-        //        var screenshot = Driver.TakeScreenshot();
-
-        //        // Define path for files to be saved
-        //        var filePath = $"C:\\ScreenShots\\{datestamp}\\" +
-        //            $"{TestContext.CurrentContext.Test.Name}" + $"{timestamp}";
-
-        //        // Build error log file 
-        //        string errorLog = $"Test Name: {TestContext.CurrentContext.Test.Name}\r\n\r\n" +
-        //            $"Error Message: {TestContext.CurrentContext.Result.Message}\r\n\r\n" +
-        //            $"Stack Trace: {TestContext.CurrentContext.Result.StackTrace}";
-
-
-        //        screenshot.SaveAsFile(filePath + ".png", ScreenshotImageFormat.Png);
-        //        File.WriteAllText(filePath + ".txt", errorLog);
-        //    }
-        //}
+       
 
         [OneTimeTearDown]
         protected void TearDown()
         {
             _extent.Flush();
+            Driver.Dispose();  // Quit();
         }
     }
 }

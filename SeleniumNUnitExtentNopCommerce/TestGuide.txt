@@ -26,3 +26,51 @@
 }
 
 
+
+Run Test with commandline:
+
+vstest.console.exe --settings:"F:\VS-projects\SeleniumNUnitExtentNopCommerce\SeleniumNUnitExtentNopCommerce\RunSettings\\ChromeTest.runsettings" "F:\VS-projects\SeleniumNUnitExtentNopCommerce\SeleniumNUnitExtentNopCommerce\bin\Debug\SeleniumNUnitExtentNopCommerce.dll" 
+
+vstest.console.exe --settings:"F:\VS-projects\SeleniumNUnitExtentNopCommerce\SeleniumNUnitExtentNopCommerce\RunSettings\FireFoxTest.runsettings" "F:\VS-projects\SeleniumNUnitExtentNopCommerce\SeleniumNUnitExtentNopCommerce\bin\Debug\SeleniumNUnitExtentNopCommerce.dll" 
+
+
+
+"C:\Program Files (x86)\NUnit.org\nunit-console\nunit3-console.exe" --testparam:Browser=Firefox --settings:"F:\VS-projects\SeleniumNUnitExtentNopCommerce\SeleniumNUnitExtentNopCommerce\FireFoxTest.runsettings" "F:\VS-projects\SeleniumNUnitExtentNopCommerce\SeleniumNUnitExtentNopCommerce\bin\Debug\SeleniumNUnitExtentNopCommerce.dll" 
+
+//input[@type='submit' and contains(., 'Google Search')]
+
+
+vstest.console.exe --settings:test.runsettings test.dll
+
+
+
+set PATH=%PATH%;"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TestWindow"
+
+
+
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe" 
+--settings:"E:\C# Projects\SeleniumNUnit\SeleniumNUnitFrameworkTemplate\SeleniumNUnitFrameworkTemplate\RunSettings\premmerce.runsettings" 
+"E:\C# Projects\SeleniumNUnit\SeleniumNUnitFrameworkTemplate\SeleniumNUnitFrameworkTemplate\bin\Debug\netcoreapp3.1\SeleniumNUnitFrameworkTemplate.dll" 
+
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe" 
+--settings:"E:\C# Projects\SeleniumNUnit\SeleniumNUnitFrameworkTemplate\SeleniumNUnitFrameworkTemplate\RunSettings\test.runsettings" 
+"E:\C# Projects\SeleniumNUnit\SeleniumNUnitFrameworkTemplate\SeleniumNUnitFrameworkTemplate\bin\Debug\netcoreapp3.1\SeleniumNUnitFrameworkTemplate.dll" 
+
+
+xpath list
+
+
+Computers main menu
+//ul[@class='top-menu notmobile']//a[contains(text(),'Computers')]
+
+Notebook at computer submenu
+//ul[@class='top-menu notmobile']//a[contains(text(),'Notebooks')]
+
+//Screen shot is saved in C:\Screenshots\{datestamp}\testmethodname{timestamp}.png
+
+
+TO DO LIST:
+
+1. FIGURE OUT  HOW TO log into one report file instead of each class
+2. RunSettings pass browser name to passinbrowser method.
+3. Take full screen shot

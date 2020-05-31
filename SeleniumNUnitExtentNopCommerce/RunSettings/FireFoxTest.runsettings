@@ -1,0 +1,19 @@
+<RunSettings>
+
+  <TestRunParameters>
+ 
+   <!-- Home Page-->
+    <Parameter name="Environment" value="http://localhost:15536"/>
+ 
+   <!-- User Info-->
+    <Parameter name="Email" value="admin@yourstore.com"/>
+    <Parameter name="Password" value="bit12345"/>
+    <!-- Browser Type-->
+    <Parameter name="BrowserType" value="FireFox"/>
+  </TestRunParameters>
+
+  <MSTest>
+    <DeploymentEnabled>False</DeploymentEnabled>
+  </MSTest>
+
+</RunSettings>

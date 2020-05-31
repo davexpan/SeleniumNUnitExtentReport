@@ -19,12 +19,12 @@ namespace SeleniumNUnitExtentNopCommerce.Pages
             this.GetUser = GetUser;
         }
 
-        public IWebElement SignInBtnatHome => Driver.WaitForAndFindElement(By.XPath("//*[@id='header']//a[contains(., 'Sign in')]"));
-        public IWebElement EmailId => Driver.WaitForAndFindElement(By.Id("email"));
+        public IWebElement LogInBtnatHome => Driver.WaitForAndFindElement(By.XPath("//li/a[contains(., 'Log in')]"));
+        public IWebElement EmailId => Driver.WaitForAndFindElement(By.Id("Email"));
 
-        public IWebElement Password => Driver.WaitForAndFindElement(By.Id("passwd"));
+        public IWebElement Password => Driver.WaitForAndFindElement(By.Id("Password"));
 
-        public IWebElement SignInBtn => Driver.WaitForAndFindElement(By.Id("SubmitLogin"));
+        public IWebElement LogInBtn => Driver.WaitForAndFindElement(By.XPath("//input[@value='Log in']"));
 
        
         public string PageTitle => Driver.Title;
@@ -53,12 +53,12 @@ namespace SeleniumNUnitExtentNopCommerce.Pages
 
         public void UserLogin()
         {
-            SignInBtnatHome.SafeClick();
+            LogInBtnatHome.SafeClick();
             Thread.Sleep(1000);
             EmailId.SendKeys(GetUser.Email);
             Thread.Sleep(1000);
             Password.SendKeys(GetUser.Password);
-            SignInBtn.SafeClick();
+            LogInBtn.SafeClick();
             Thread.Sleep(1000);
         }
 

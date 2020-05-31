@@ -9,12 +9,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 
 namespace SeleniumNUnitExtentNopCommerce
 {
     public class BrowserSelect
     {
-        public enum Type
+
+        public enum BrowserType
         {
             Chrome,
             FireFox,
@@ -22,24 +25,35 @@ namespace SeleniumNUnitExtentNopCommerce
             Edege,
             SeleniumGrid
         }
-
-        public IWebDriver Create(Type browserType)
+        private BrowserType _browserType;
+        public BrowserType PassInBrowser()
         {
+            //Get the value from NUnit-console --params 
+            //nunit3-console.exe --params:Browser=Firefox \SeleniumNUnitParam.dll
+            //If nothing specified, test will run in Chrome browser
+            var browserType = TestContext.Parameters.Get("Browser", "Chrome");
+            //Parse the browser Type, since it's Enum
+            return _browserType = (BrowserType)Enum.Parse(typeof(BrowserType), browserType);
+                      
+        }
+        public IWebDriver Create(BrowserType browserType)
+        {
+
             switch (browserType)
             {
-                case Type.Chrome:
+                case BrowserType.Chrome:
                     return GetChromeDriver();
 
-                case Type.IE:
+                case BrowserType.IE:
                     return GetIEDriver();
 
-                case Type.Edege:
+                case BrowserType.Edege:
                     return GetEdgeDriver();
 
-                case Type.FireFox:
+                case BrowserType.FireFox:
 
                     return GetFireFoxDriver();
-                
+
                 //case Type.SeleniumGrid:
                 //    return GetSeleniumGrid();
                 default:
@@ -49,7 +63,7 @@ namespace SeleniumNUnitExtentNopCommerce
         private IWebDriver GetChromeDriver()
         {
 
-            return new ChromeDriver(); //GetDriverPath()
+            return new ChromeDriver(GetDriverPath()); //GetDriverPath()
         }
 
         private IWebDriver GetIEDriver()
@@ -104,31 +118,31 @@ namespace SeleniumNUnitExtentNopCommerce
             var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
             var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            var driverPath = directory + "/../../../Drivers"; 
+            var driverPath = directory + "\\..\\..\\Drivers";
             //var resourcesDirectory = Path.GetFullPath(outPutDirectory);
             return driverPath;
         }
 
-        
-       //private IWebDriver GetSeleniumGrid()
-       // {
-       //     IoLibrary.WriteLine("Launching Browser Using Selenium Grid - Chrome Browser.");
 
-       //     const string gridUrl = "http://y75EbcWLcnPNI0p8sZBQTcTUGj5PCOl0:LhvNjhomu4Z3Ue2d3tTMwDx3MtJe7V5I@SESYNPZ6.gridlastic.com:80/wd/hub";
-       //     ChromeOptions options = new ChromeOptions();
-       //     options.AddArguments("--start-maximized");
-       //     options.AddArguments("--disable-extensions");
-       //     DesiredCapabilities capabilities = DesiredCapabilities.Chrome();
-       //     capabilities.SetCapability(ChromeOptions.Capability, options);
-       //     return Driver = new RemoteWebDriver(capabilities); 
-       //     var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-       //     var driverPath = directory + "\\..\\..\\Drivers";
-       //     return driverPath;
+        //private IWebDriver GetSeleniumGrid()
+        // {
+        //     IoLibrary.WriteLine("Launching Browser Using Selenium Grid - Chrome Browser.");
 
-       //     else
-       //     {
-       //         throw new Exception(string.Format("Browser Type {0}, not Found, please add additional code for this desired WebDriver Type.", browser));
-       //     }
-       // }
+        //     const string gridUrl = "http://y75EbcWLcnPNI0p8sZBQTcTUGj5PCOl0:LhvNjhomu4Z3Ue2d3tTMwDx3MtJe7V5I@SESYNPZ6.gridlastic.com:80/wd/hub";
+        //     ChromeOptions options = new ChromeOptions();
+        //     options.AddArguments("--start-maximized");
+        //     options.AddArguments("--disable-extensions");
+        //     DesiredCapabilities capabilities = DesiredCapabilities.Chrome();
+        //     capabilities.SetCapability(ChromeOptions.Capability, options);
+        //     return Driver = new RemoteWebDriver(capabilities); 
+        //     var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        //     var driverPath = directory + "\\..\\..\\Drivers";
+        //     return driverPath;
+
+        //     else
+        //     {
+        //         throw new Exception(string.Format("Browser Type {0}, not Found, please add additional code for this desired WebDriver Type.", browser));
+        //     }
+        // }
     }
 }

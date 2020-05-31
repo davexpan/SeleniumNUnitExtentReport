@@ -32,7 +32,7 @@ namespace SeleniumNUnitExtentNopCommerce.Tests
             IWebElement wb = Driver.WaitForAndFindElement(By.Name("q"));
             wb.SendKeys("Cheese");
             wb.SendKeys(Keys.Enter);
-            Assert.IsTrue(Driver.Title == "Cheese - Google Search");
+            Assert.IsTrue(Driver.Title.Contains ("Google Search"));
            
 
         }
