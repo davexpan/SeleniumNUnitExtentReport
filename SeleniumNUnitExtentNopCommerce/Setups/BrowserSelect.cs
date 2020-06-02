@@ -26,14 +26,10 @@ namespace SeleniumNUnitExtentNopCommerce
             SeleniumGrid
         }
         private BrowserType _browserType;
-        public BrowserType PassInBrowser()
+        public BrowserType PassInBrowser(string Browsertype)
         {
-            //Get the value from NUnit-console --params 
-            //nunit3-console.exe --params:Browser=Firefox \SeleniumNUnitParam.dll
-            //If nothing specified, test will run in Chrome browser
-            var browserType = TestContext.Parameters.Get("Browser", "Chrome");
-            //Parse the browser Type, since it's Enum
-            return _browserType = (BrowserType)Enum.Parse(typeof(BrowserType), browserType);
+            
+            return _browserType = (BrowserType)Enum.Parse(typeof(BrowserType), Browsertype);
                       
         }
         public IWebDriver Create(BrowserType browserType)

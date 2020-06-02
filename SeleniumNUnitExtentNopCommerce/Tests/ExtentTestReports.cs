@@ -3,6 +3,7 @@ using AventStack.ExtentReports.Reporter;
 using NUnit.Framework;
 using SeleniumNUnitExtentNopCommerce.Setups;
 using OpenQA.Selenium;
+using System.Threading;
 
 namespace SeleniumNUnitExtentNopCommerce.Tests
 {
@@ -10,7 +11,7 @@ namespace SeleniumNUnitExtentNopCommerce.Tests
     public class ExtentTestReports : DriverExtentHook
     {
         [Test]
-        public void ExtentTestCase()
+        public void SearchCheese()
         {
             //var htmlReporter = new ExtentHtmlReporter("extentReport.html");
             //var extent = new ExtentReports();
@@ -30,9 +31,10 @@ namespace SeleniumNUnitExtentNopCommerce.Tests
 
             Driver.Manage().Window.Maximize();
             IWebElement wb = Driver.WaitForAndFindElement(By.Name("q"));
-            wb.SendKeys("Cheese");
+            wb.SendKeys("cheese");
             wb.SendKeys(Keys.Enter);
-            Assert.IsTrue(Driver.Title.Contains ("Google Search"));
+            Thread.Sleep(3000);
+            Assert.IsTrue(Driver.Title.Equals("cheese - Google Search"));
            
 
         }

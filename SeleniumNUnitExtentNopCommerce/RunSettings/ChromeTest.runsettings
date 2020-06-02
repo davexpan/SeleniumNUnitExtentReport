@@ -9,7 +9,7 @@
     <Parameter name="Email" value="admin@yourstore.com"/>
     <Parameter name="Password" value="bit12345"/>
     <!-- Browser Type-->
-    <Parameter name="BrowserType" value="Chrome"/>
+    <Parameter name="Browsertype" value="Chrome"/>
   </TestRunParameters>
 
   <MSTest>

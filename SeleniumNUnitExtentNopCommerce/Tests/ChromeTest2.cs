@@ -4,6 +4,7 @@ using OpenQA.Selenium.Firefox;
 using System.Reflection;
 using SeleniumNUnitExtentNopCommerce.Setups;
 using OpenQA.Selenium.Chrome;
+using System.Threading;
 
 namespace SeleniumNUnitExtentNopCommerce.Tests
 {
@@ -22,8 +23,9 @@ namespace SeleniumNUnitExtentNopCommerce.Tests
             //Perform Ops
             element.SendKeys("UFO");
             element.Submit();
+            Thread.Sleep(3000);
             Assert.IsTrue(Driver.Title.Contains("Google"));
-            //Assert.IsTrue(Driver.Title == "G0oogle");
+            Assert.IsTrue(Driver.Title == "UFO - Google Search");
         }
     }
 }

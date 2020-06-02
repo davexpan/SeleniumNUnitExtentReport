@@ -14,8 +14,9 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
 
     public abstract class DriverExtentHook
     {
-        protected ExtentReports _extent;
-        protected ExtentTest _test;
+        protected static ExtentReports _extent = new ExtentReports();
+        protected static ExtentHtmlReporter htmlReporter;
+        protected static ExtentTest _test;
         public IWebDriver Driver;
         public Page AllPages { get; set; }
         //public DataBaseHelper DbHelper { get; set; }
@@ -31,9 +32,9 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
             EnvSettings = GetAppSettings();
             GetUser = GetUserCred();
             Browser = new BrowserSelect();
-            var browser = EnvSettings.Browser;
+            var browser = EnvSettings.Browsertype;
             //var browser = TestContext.Parameters.Get("Browser", "firefox");
-            Driver = Browser.Create(Browser.PassInBrowser());
+            Driver = Browser.Create(Browser.PassInBrowser(browser));
             Driver.Manage().Window.Maximize();
 
             HomePage = EnvSettings.HomePage;
@@ -46,10 +47,10 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
             Directory.CreateDirectory(projectPath.ToString() + "Reports");
             var reportPath = projectPath + "Reports\\";
             string dir = TestContext.CurrentContext.TestDirectory + "\\";
-            var fileName = this.GetType().ToString() + ".html";
+            string fileName = "ExtentTestReports.html"; // this.GetType().ToString() +
             var htmlReporter = new ExtentHtmlReporter(reportPath + fileName);
 
-            _extent = new ExtentReports();
+            //_extent = new ExtentReports();
             _extent.AttachReporter(htmlReporter);
 
             _extent.AddSystemInfo("Host Name", "LocalHost");
@@ -77,7 +78,7 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
                 HomePage = TestContext.Parameters["Environment"].ToString(),
                 Email = TestContext.Parameters["Email"].ToString(),
                 Password = TestContext.Parameters["Password"].ToString(),
-                Browser = TestContext.Parameters["BrowserType"].ToString()
+                Browsertype = TestContext.Parameters["Browsertype"].ToString()
             };
             return AppSettings;
         }
@@ -120,11 +121,7 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
            // Driver.Close();
         }
 
-        // public IWebDriver GetDriver()
-        // {
-        //     return Driver;
-        // }
-
+       
         public static string Capture(IWebDriver driver, String screenShotName)
         {
             ITakesScreenshot ts = (ITakesScreenshot)driver;

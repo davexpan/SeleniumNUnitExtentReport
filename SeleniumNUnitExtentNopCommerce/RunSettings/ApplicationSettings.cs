@@ -13,6 +13,6 @@ namespace SeleniumNUnitExtentNopCommerce
         public string DBCatalog { get; set; }
         public string DBUserId { get; set; }
         public string DBPassword { get; set; }
-        public string Browser { get; set; }
+        public string Browsertype { get; set; }
     }
 }
