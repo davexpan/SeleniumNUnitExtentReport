@@ -28,9 +28,9 @@ namespace SeleniumNUnitExtentNopCommerce
         private BrowserType _browserType;
         public BrowserType PassInBrowser(string Browsertype)
         {
-            
+
             return _browserType = (BrowserType)Enum.Parse(typeof(BrowserType), Browsertype);
-                      
+
         }
         public IWebDriver Create(BrowserType browserType)
         {
@@ -50,8 +50,6 @@ namespace SeleniumNUnitExtentNopCommerce
 
                     return GetFireFoxDriver();
 
-                //case Type.SeleniumGrid:
-                //    return GetSeleniumGrid();
                 default:
                     throw new ArgumentOutOfRangeException("Browser Not supported!");
             }
@@ -71,8 +69,6 @@ namespace SeleniumNUnitExtentNopCommerce
             options.IntroduceInstabilityByIgnoringProtectedModeSettings = true;
             options.EnablePersistentHover = true;
             options.IgnoreZoomLevel = false;
-
-
 
             return new InternetExplorerDriver(GetDriverPath(), options);
         }
@@ -100,12 +96,6 @@ namespace SeleniumNUnitExtentNopCommerce
 
         private IWebDriver GetEdgeDriver()
         {
-            //var edgeOptions = new EdgeOptions();
-            ////Set Internet Explorer browser to accept the SSL Certificates by default
-            //edgeOptions.AddAdditionalCapability(CapabilityType.IsJavaScriptEnabled, true);
-            //edgeOptions.AddAdditionalCapability(CapabilityType.AcceptSslCertificates, true);
-
-
             return new EdgeDriver(GetDriverPath());
         }
 
@@ -118,27 +108,5 @@ namespace SeleniumNUnitExtentNopCommerce
             //var resourcesDirectory = Path.GetFullPath(outPutDirectory);
             return driverPath;
         }
-
-
-        //private IWebDriver GetSeleniumGrid()
-        // {
-        //     IoLibrary.WriteLine("Launching Browser Using Selenium Grid - Chrome Browser.");
-
-        //     const string gridUrl = "http://y75EbcWLcnPNI0p8sZBQTcTUGj5PCOl0:LhvNjhomu4Z3Ue2d3tTMwDx3MtJe7V5I@SESYNPZ6.gridlastic.com:80/wd/hub";
-        //     ChromeOptions options = new ChromeOptions();
-        //     options.AddArguments("--start-maximized");
-        //     options.AddArguments("--disable-extensions");
-        //     DesiredCapabilities capabilities = DesiredCapabilities.Chrome();
-        //     capabilities.SetCapability(ChromeOptions.Capability, options);
-        //     return Driver = new RemoteWebDriver(capabilities); 
-        //     var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        //     var driverPath = directory + "\\..\\..\\Drivers";
-        //     return driverPath;
-
-        //     else
-        //     {
-        //         throw new Exception(string.Format("Browser Type {0}, not Found, please add additional code for this desired WebDriver Type.", browser));
-        //     }
-        // }
     }
 }

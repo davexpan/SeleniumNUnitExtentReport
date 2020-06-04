@@ -58,8 +58,8 @@
     <Reference Include="RazorEngine, Version=3.9.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
       <HintPath>..\packages\RazorEngine.3.9.0\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
-    <Reference Include="SeleniumExtras.PageObjects, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetSeleniumExtras.PageObjects.3.11.0\lib\net45\SeleniumExtras.PageObjects.dll</HintPath>
+    <Reference Include="SeleniumExtras.WaitHelpers, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetSeleniumExtras.WaitHelpers.3.11.0\lib\net45\SeleniumExtras.WaitHelpers.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\BasePage.cs" />
+    <Compile Include="Pages\ComputersPage.cs" />
     <Compile Include="Pages\LandingPage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\Page.cs" />
@@ -85,9 +86,8 @@
     <Compile Include="RunSettings\ApplicationSettings.cs" />
     <Compile Include="Setups\BrowserSelect.cs" />
     <Compile Include="Setups\DriverExtentHook.cs" />
-    <Compile Include="Tests\ExtentTestReports.cs" />
+    <Compile Include="Tests\ComputerTest.cs" />
     <Compile Include="Tests\LoginTest.cs" />
-    <Compile Include="Tests\ChromeTest2.cs" />
     <Compile Include="Utilities\CommonHelpers.cs" />
     <Compile Include="Utilities\GetUserCredentials.cs" />
     <Compile Include="Utilities\SeleniumHelper.cs" />

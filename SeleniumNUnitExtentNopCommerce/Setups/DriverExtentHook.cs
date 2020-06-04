@@ -18,7 +18,7 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
         protected static ExtentHtmlReporter htmlReporter;
         protected static ExtentTest _test;
         public IWebDriver Driver;
-        public Page AllPages { get; set; }
+        public Page InitPages { get; set; }
         //public DataBaseHelper DbHelper { get; set; }
         public GetUserCredentials GetUser { get; set; }
         public BrowserSelect Browser { get; set; }
@@ -38,9 +38,10 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
             Driver.Manage().Window.Maximize();
 
             HomePage = EnvSettings.HomePage;
-            AllPages = new Page(Driver, GetUser);
+            InitPages = new Page(Driver, GetUser);
             CommonHelpers = new CommonHelpers();
-
+            InitPages.LoginPage.GoToLoginPage(HomePage);
+            InitPages.LoginPage.UserLogin();
             var path = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
             var actualPath = path.Substring(0, path.LastIndexOf("bin"));
             var projectPath = new Uri(actualPath).LocalPath;
@@ -118,10 +119,9 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
 
             _test.Log(logstatus, testMethodName + " " + logstatus + stacktrace);
             _extent.Flush();
-           // Driver.Close();
         }
 
-       
+
         public static string Capture(IWebDriver driver, String screenShotName)
         {
             ITakesScreenshot ts = (ITakesScreenshot)driver;
@@ -137,7 +137,7 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
             return reportPath;
         }
 
-       
+
 
         [OneTimeTearDown]
         protected void TearDown()

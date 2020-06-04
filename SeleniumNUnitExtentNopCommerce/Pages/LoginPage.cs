@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
 using SeleniumNUnitExtentNopCommerce.Setups;
-using SeleniumNUnitFrameworkTemplate;
 using System;
 using System.Collections.Generic;
 using System.Linq;

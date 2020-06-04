@@ -33,6 +33,9 @@ Run Test with commandline: // remove carriage return:
 --settings:"F:\VS-projects\SeleniumNUnitExtentNopCommerce\SeleniumNUnitExtentNopCommerce\RunSettings\FireFoxTest.runsettings" 
 "F:\VS-projects\SeleniumNUnitExtentNopCommerce\SeleniumNUnitExtentNopCommerce\bin\Debug\SeleniumNUnitExtentNopCommerce.dll" 
 
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe" 
+--settings:"F:\VS-projects\SeleniumNUnitExtentNopCommerce\SeleniumNUnitExtentNopCommerce\RunSettings\ChromeTest.runsettings" 
+"F:\VS-projects\SeleniumNUnitExtentNopCommerce\SeleniumNUnitExtentNopCommerce\bin\Debug\SeleniumNUnitExtentNopCommerce.dll" 
 
 "C:\Program Files (x86)\NUnit.org\nunit-console\nunit3-console.exe" --testparam:Browser=Firefox --settings:"F:\VS-projects\SeleniumNUnitExtentNopCommerce\SeleniumNUnitExtentNopCommerce\FireFoxTest.runsettings" "F:\VS-projects\SeleniumNUnitExtentNopCommerce\SeleniumNUnitExtentNopCommerce\bin\Debug\SeleniumNUnitExtentNopCommerce.dll" 
 

@@ -17,50 +17,16 @@ namespace SeleniumNUnitExtentNopCommerce.Tests
     [TestFixture]
     public class LoginTest : DriverExtentHook
     {
-        [Test, Order(1)]
+        [Test]
         [Category("Smoke")]
         public void LoginUserTest()
         {
-            AllPages.LoginPage.GoToLoginPage(HomePage);
-            AllPages.LoginPage.UserLogin();
-            Assert.True(AllPages.LoginPage.IsAtHomePageDisplayed().Equals("Your store"));
-            //  AxeResult results = Driver.Analyze();
+            //InitPages.LoginPage.GoToLoginPage(HomePage);
+            //InitPages.LoginPage.UserLogin();
+            Assert.True(InitPages.LoginPage.IsAtHomePageDisplayed().Equals("Your store"));
+            
         }
 
-
-
-       // [Test, Order(3)]
-        public void FirefoxTest()
-        {
-
-            //FirefoxOptions options = new FirefoxOptions();
-            //var profile = new FirefoxProfile();
-            //var binary = new FirefoxBinary(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe");
-            //driver = new FirefoxDriver(binary, profile); test gitea
-
-            var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            var pathDrivers = directory + "\\..\\..\\Drivers";
-
-            Driver = new FirefoxDriver(pathDrivers);
-            Driver.Navigate().GoToUrl("http://www.mozilla.org/");
-            Driver.Manage().Window.Maximize();
-            Assert.IsTrue(Driver.Title == "Internet for people, not profit — Mozilla");
-        }
-        [Test, Order(2)]
-        public void SearchGoogle()
-        {
-
-
-            Driver.Navigate().GoToUrl("http://www.google.com");
-            IWebElement element = Driver.FindElement(By.Name("q"));
-
-            //Perform Ops
-            element.SendKeys("Google");
-            element.Submit();
-            Thread.Sleep(3000);
-
-            Assert.IsTrue(Driver.Title.Contains("Google"));
-            //Assert.IsTrue(Driver.Title == "Google");
-        }
+       
     }
 }

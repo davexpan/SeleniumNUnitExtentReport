@@ -22,7 +22,7 @@ namespace SeleniumNUnitExtentNopCommerce
         public LoginPage LoginPage => new LoginPage(Driver, GetUser);   
         
         
-        //public MaintenancePage maintenancePage => new MaintenancePage(Driver);
+        public ComputersPage computersPage => new ComputersPage(Driver);
        
     }
 }
