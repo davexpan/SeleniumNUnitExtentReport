@@ -17,7 +17,7 @@ namespace SeleniumNUnitExtentNopCommerce.Tests
     {
         [Test]
         [Category("Integration")]
-        public void OrderNotebookVerifyTotal()
+        public void OrderNotebookVerifyItemName()
         {
            string ProductName = InitPages.computersPage.OrderNotebook();
             Assert.AreEqual("Apple MacBook Pro 13-inch", ProductName);

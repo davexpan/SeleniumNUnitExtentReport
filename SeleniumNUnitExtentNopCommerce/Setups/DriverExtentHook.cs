@@ -48,15 +48,14 @@ namespace SeleniumNUnitExtentNopCommerce.Setups
             Directory.CreateDirectory(projectPath.ToString() + "Reports");
             var reportPath = projectPath + "Reports\\";
             string dir = TestContext.CurrentContext.TestDirectory + "\\";
-            string fileName = "ExtentTestReports.html"; // this.GetType().ToString() +
+            string fileName = browser.ToString() + "_ExtentTestReports.html"; // this.GetType().ToString() +
             var htmlReporter = new ExtentHtmlReporter(reportPath + fileName);
 
-            //_extent = new ExtentReports();
             _extent.AttachReporter(htmlReporter);
 
             _extent.AddSystemInfo("Host Name", "LocalHost");
             _extent.AddSystemInfo("Environment", "QA");
-            _extent.AddSystemInfo("UserName", "TestUser");
+            _extent.AddSystemInfo("UserName", "David Pan");
             _test = _extent.CreateTest(TestContext.CurrentContext.Test.Name);
         }
 
