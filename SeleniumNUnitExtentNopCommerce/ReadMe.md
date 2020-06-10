@@ -5,9 +5,9 @@ This repository is a POM automation framework template. It runs test against the
 
 Environment settings, user credentials are listed in the RunSettings file, which can be selected for running test in Visual Studio or in command line.
 
-Extent reports aer generated after the test.
+Extent reports are generated after the test.
 
-Currently supports the Chrome and FireFox browser  
+Currently the framework supports the Chrome and FireFox browser  
 
 ## Command line example for running the test
 
